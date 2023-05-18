@@ -4,7 +4,7 @@ from django.contrib.auth import authenticate, login, logout, get_user_model
 from django.contrib.auth.tokens import default_token_generator
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.utils.encoding import force_bytes, force_str
-from django.views.decorators.csrf import csrf_exempt, ensure_csrf_cookie
+from django.views.decorators.csrf import ensure_csrf_cookie
 
 from rest_framework import status
 from rest_framework.decorators import api_view, authentication_classes, permission_classes
@@ -107,6 +107,7 @@ def register_view(request):
     return Response({'message': 'User registered successfully.'}, status=status.HTTP_201_CREATED)
 
 
+# TODO I am currently not using this, as I kept walking into problems. I can implement this in the future
 @api_view(['GET'])
 @ensure_csrf_cookie
 @authentication_classes([])
